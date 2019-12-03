@@ -22,6 +22,18 @@ fetch(users_url)
     })
 })
 
+function editUser(user) {
+    fetch(`${users_url}/${user.id}`, {
+        method: 'PATCH',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            username: user.username
+        })
+    })
+}
+
 function formatUserJsonData(user) {
     let hash = {};
     hash["username"] = user.username;
@@ -29,8 +41,8 @@ function formatUserJsonData(user) {
     hash["location"] = user.location;
     hash["id"] = user.id;
     hash["skills"] = user.skills
-    console.log(user.skills.forEach(skill => { console.log(skill.skillName)}))
-    console.log(hash)
+    // console.log(user.skills.forEach(skill => { console.log(skill.skillName)}))
+    // console.log(hash)
     return hash;
 }
 
@@ -83,10 +95,11 @@ function createUserCard(hash) {
     editButton.textContent = "Edit"
     editButton.addEventListener('click', () => {
         console.log("click")
-        pUsername.contentEditable = true;
-        pEmail.contentEditable = true;
-        pLocation.contentEditable = true;
-        ulSkills.contentEditable = true;
+        editUser(hash)
+        // pUsername.contentEditable = true;
+        // pEmail.contentEditable = true;
+        // pLocation.contentEditable = true;
+        // ulSkills.contentEditable = true;
     })
     userDiv.appendChild(editButton)
 }
