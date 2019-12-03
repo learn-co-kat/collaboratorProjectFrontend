@@ -27,6 +27,10 @@ function formatUserJsonData(user) {
     hash["username"] = user.username;
     hash["email"] = user.email;
     hash["location"] = user.location;
+    hash["id"] = user.id;
+    hash["skills"] = user.skills
+    console.log(user.skills.forEach(skill => { console.log(skill.skillName)}))
+    console.log(hash)
     return hash;
 }
 
@@ -37,15 +41,43 @@ function createUserCard(hash) {
     userDiv.classList.add('user_div')
     div.appendChild(userDiv)
 
+    let nameTag = document.createElement('p');
+    nameTag.textContent = "Your Name: ";
+    nameTag.style.fontWeight = 600;
+    userDiv.appendChild(nameTag);
     let pUsername = document.createElement('p')
     pUsername.textContent = hash.username;
+    userDiv.appendChild(pUsername)
+
+    let emailTag = document.createElement('p');
+    emailTag.textContent = "Your Email: ";
+    emailTag.style.fontWeight = 600;
+    userDiv.appendChild(emailTag);
     let pEmail = document.createElement('p')
     pEmail.textContent = hash.email
+    userDiv.appendChild(pEmail)
+
+    let locationTag = document.createElement('p');
+    locationTag.textContent = "Your Location: ";
+    locationTag.style.fontWeight = 600;
+    userDiv.appendChild(locationTag);
     let pLocation = document.createElement('p')
     pLocation.textContent = hash.location
-    userDiv.appendChild(pUsername)
-    userDiv.appendChild(pEmail)
     userDiv.appendChild(pLocation)
+
+    let skillsTag = document.createElement('p');
+    skillsTag.textContent = "Your Skills: ";
+    skillsTag.style.fontWeight = 600;
+    userDiv.appendChild(skillsTag);    
+    let ulSkills = document.createElement('ul')
+    userDiv.appendChild(ulSkills)
+
+    hash.skills.forEach(skill => {
+        let liSkills = document.createElement('li')
+        liSkills.textContent = skill.skillName
+        ulSkills.appendChild(liSkills)
+    })
+
 
     let editButton = document.createElement('button')
     editButton.textContent = "Edit"
@@ -54,6 +86,7 @@ function createUserCard(hash) {
         pUsername.contentEditable = true;
         pEmail.contentEditable = true;
         pLocation.contentEditable = true;
+        ulSkills.contentEditable = true;
     })
     userDiv.appendChild(editButton)
 }
