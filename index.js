@@ -1,3 +1,5 @@
+// beautiful comment
+
 const base_url = "http://localhost:3000"
 const projects_url = `${base_url}/projects`
 const users_url = `${base_url}/users`
