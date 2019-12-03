@@ -6,11 +6,52 @@
     <link rel="stylesheet" href="styles.css">
     <script src="./index.js"></script>
   </head>
+
   <body>
+    <div id="signInCreate">
+        <!--
+            Drop down menu of existing usernames (users), 
+            or if yours doesn't exist can create one with a form where user can enter name and click submit which will create that user in our database.
+            Once a user is signed in, this div is hidden.
+        -->
+
+    </div>
+
+    <div id="userInfo">
+        <!--
+            Once you sign in, this div emeerges where you can see your skills, location, username, email.
+            Skills includes a list of existing skills, but you also can add your own.
+            Button to edit any of these fields.
+        -->
+
+    </div>
+
     <h1>Collaborate!</h1>
-    <main>
-        <h2 id = "userID">Users</h2>
-        <h2 id = "projectID">Projects</h2>
-    </main>
+
+    <div id="viewMyProjects">
+        <!--
+            A button that is essentially a filter that only shows projects in projectCards div that belong to you.
+        -->
+    </div>
+
+    <div id="addProject">
+        <!--
+            A button that toggles a window which is a form that asks for projectName, location, and skills needed.
+            Skills will be a list of existing skills by users or can add your own.
+            User_id will automatically be your own, and status will automatically be 'in progress.'
+            Will save to the database, and then that project will be added to projectCards
+        -->
+
+    </div>
+    <div id="projectCards">
+        <!--
+            Where each project div will go -- 'eachProject'
+            Will display each project's name, location, status, user creator, user collaborators, skills still needed.
+            Button to sign up if you are not creator.
+                Once someone signs up with a needed skill, that skill is removed from the project card.
+            If you are creator, button to edit or delete.
+        -->
+
+    </div>
   </body>
 </html>
